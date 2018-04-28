@@ -31,5 +31,10 @@ localhost:8080/BSManager/admin/index.jsp   这是登陆到管理员的登陆界�
 
 <h4> 使用的是maven，所以生成的结构如上面所示。</h4>
 简单介绍一下：<br>
-Java Resources
+`Java Resources` 下包含4个包 `src/main/java` `src/main/resources` `src/test/java` `Libraries` <br>
+第一个是写Java文件的包，包括开发时所用到的dao包、entity包、service包、controller包等等<br>
+第二个是配置存放的包，包括mapper(用于sql的实现) spring(spring的配置文件) jdbc.properties(数据库的常规信息) logback.xml (日志) mybatis-config.xml (MyBatis的配置)<br>
+第三个是用于测试的包，你可以在写了dao和mapping之后测试是否可以获得想要的结果<br>
+第四个是开发中所用到的jar包，由于使用了Maven 所以会有一个Maven Dependencies包，用于存放开发中的jar包<br>
 
+ 
