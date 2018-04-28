@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IStudentScoreDao">
+	<insert id="addStudenScore" parameterType="StudentScore">
+		insert into t_student_score values(null,#{studentId},#{thesisResult},#{inputMan})
+	</insert>
+	
+	<select id="showInfoByStudentId" parameterType="int" resultType="StudentScore">
+		select * from t_student_score where studentId=#{studentId}
+	</select>	
+	
+	<update id="modifyStudentScore" parameterType="StudentScore">
+		update t_student_score set thesisResult=#{thesisResult},inputMan=#{inputMan} where studentId=#{studentId}
+	</update>
+</mapper>

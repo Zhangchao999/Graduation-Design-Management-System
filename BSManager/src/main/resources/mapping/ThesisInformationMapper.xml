@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IThesisInformationDao">
+	<insert id="addThesisInformation" parameterType="ThesisInformation">
+		insert into t_thesis_information values(null,#{studentId},#{thesisText},0,#{description});
+	</insert>
+	
+	<update id="passThesisInformation" parameterType="int">
+		update t_thesis_information set status=2 where studentId=#{studentId}
+	</update>
+	
+	<update id="failThesisInformation" parameterType="int">
+		update t_thesis_information set status=1 where studentId=#{studentId}
+	</update>
+	
+	<delete id="deleteThesisInformation" parameterType="int">
+		delete from t_thesis_information where studentId=#{studentId}
+	</delete>
+	
+	<select id="getInfoByStudentId" parameterType="int" resultType="ThesisInformation">
+		select * from t_thesis_information where studentId=#{studentId}
+	</select>
+	
+	<select id="getInfoByFilePath" parameterType="String" resultType="ThesisInformation">
+		select * from t_thesis_information where thesisText=#{thesisText}
+	</select>
+</mapper>

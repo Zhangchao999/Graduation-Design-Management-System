@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IAnnouncementDao">
+	<insert id="addAnnouncement" parameterType="Announcement">
+		insert into t_announcement values(null,#{context},#{inputMan},#{lastModifyTime})
+	</insert>
+	
+	<delete id="deleteAnnouncement" parameterType="int">
+		delete from t_announcement where id=#{id}
+	</delete>
+	
+	<select id="showAllAnnouncement" resultType="Announcement">
+		select * from t_announcement order by lastModifyTime DESC
+	</select>
+	
+</mapper>

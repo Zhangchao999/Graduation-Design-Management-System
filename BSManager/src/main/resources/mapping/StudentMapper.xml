@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IStudentDao">
+	<select id="selectStudent" resultType="Student" parameterType="int">
+		select * from t_student where id=#{id}
+	</select>
+	
+	<insert id="addStudent" parameterType="Student">
+		insert into t_student values(null,#{studentNo},#{studentName},#{sex},#{majorId},#{grade},#{inputMan},#{lastModifyTime},#{phone})
+	</insert>
+	
+	<select id="showAllStudent" resultType="Student">
+		select * from t_student
+	</select>
+	
+	<delete id="deleteStudent" parameterType="int">
+		delete from t_student where id=#{id}
+	</delete>
+	
+	<update id="updateStudent" parameterType="Student">
+		update t_student set studentNo=#{studentNo},studentName=#{studentName},sex=#{sex},majorId=#{majorId},grade=#{grade},inputMan=#{inputMan},lastModifyTime=#{lastModifyTime},phone=#{phone} where id=#{id}
+	</update>
+	
+	<select id="showStudentOne1" resultType="Student">
+		select * from t_student where studentNo=#{studentNo}
+	</select>
+	
+	<select id="showStudentOne2" resultType="Student">
+		select * from t_student where studentName=#{studentName}
+	</select>
+	
+	<select id="showStudentOne3" resultType="Student">
+		select * from t_student where studentNo=#{studentNo} and studentName=#{studentName}
+	</select>
+	
+	<select id="getInfoByNo" parameterType="String" resultType="Student">
+		select * from t_student where studentNo=#{studentNo}
+	</select>
+	
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IUserDao">
+	
+	<select id="queryById" resultType="User" parameterType="int">
+		select * from t_user where id=#{id}
+	</select>
+	
+	<select id="login" resultType="User" parameterType="User">
+		select * from t_user where userNo=#{userNo} and password=#{password}
+	</select>
+	
+	<select id="getPassword" resultType="User" parameterType="String">
+		select * from t_user where userNo=#{userNo}
+	</select>
+	
+	<update id="modifyPassword" >
+		update t_user set password = #{password} where userNo=#{userNo}
+	</update>
+	
+</mapper>

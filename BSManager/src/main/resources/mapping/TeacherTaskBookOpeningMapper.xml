@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.ITeacherTaskBookOpeningDao">
+	<select id="showInfo" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}	
+	</select>
+	
+	<insert id="addTaskBook" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},null,#{taskBook},#{description},#{thesisTitleId})
+	</insert>
+	
+	<insert id="addOpening" parameterType="TeacherTaskBookOpening">
+		insert into t_teacher_opening_report_task_book values(null,#{teacherId},#{openingReport},null,#{description},#{thesisTitleId})
+	</insert>
+	
+	<update id="uploadTaskBook" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set taskBook=#{taskBook} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="uploadOpening" parameterType="TeacherTaskBookOpening">
+		update t_teacher_opening_report_task_book set openingReport=#{openingReport} where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<select id="showTeacherTaskBookOpeningById" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where teacherId=#{teacherId}
+	</select>
+	
+	<update id="resetTaskBook" parameterType="int">
+		update t_teacher_opening_report_task_book set taskBook="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<update id="resetOpening" parameterType="int">
+		update t_teacher_opening_report_task_book set openingReport="" where thesisTitleId=#{thesisTitleId}
+	</update>
+	
+	<select id="showInfoByThesisId" parameterType="int" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}
+	</select>
+	
+	<delete id="deleteInfo" parameterType="int">
+		delete from t_teacher_opening_report_task_book where thesisTitleId=#{thesisTitleId}
+	</delete>
+	
+	<select id="getTheisIdByTask" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where taskBook=#{taskBook}
+	</select>
+	
+	<select id="getTheisIdByOpening" parameterType="String" resultType="TeacherTaskBookOpening">
+		select * from t_teacher_opening_report_task_book where openingReport=#{openingReport}
+	</select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IThesisTitleDao">
+	
+	<insert id="addThesisTitle" parameterType="ThesisTitle">
+		insert into t_thesis_title values(null,#{thesisName},#{teacherId},#{submitTime},1,#{inputMan},#{description})
+	</insert>
+	
+	<select id="showAllThesisTitle" resultType="ThesisTitle" parameterType="int">
+		select * from t_thesis_title where teacherId=#{teacherId}
+	</select>
+	
+	<select id="getThesisById" parameterType="int" resultType="ThesisTitle">
+		select * from t_thesis_title where id=#{id}
+	</select>
+	
+	<update id="updateThesisTitle" parameterType="ThesisTitle">
+		update t_thesis_title set thesisName=#{thesisName},teacherId=#{teacherId},submitTime=#{submitTime},status=#{status},inputMan=#{inputMan},description=#{description} where id=#{id}
+	</update>
+	
+	<delete id="deleteThesisTitle" parameterType="int">
+		delete from t_thesis_title where id=#{id}
+	</delete>
+	
+	<select id="showAllThesisTitleAd" resultType="ThesisTitle">
+		select * from t_thesis_title
+	</select>
+	
+	<update id="agreeThesis" parameterType="int">
+		update t_thesis_title set status = 2 where id=#{id}
+	</update>
+	<update id="disagreeThesis" parameterType="int">
+		update t_thesis_title set status = 3 where id=#{id}
+	</update>
+</mapper>

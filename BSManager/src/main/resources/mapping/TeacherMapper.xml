@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.ITeacherDao">
+	<insert id="addTeacher" parameterType="Teacher">
+		insert into t_teacher values(null,#{teacherNo},#{teacherName},#{departmentId},#{sex},#{inputMan},#{lastModifyTime},#{phone})
+	</insert>
+	
+	<select id="selectTeacher" parameterType="int" resultType="Teacher">
+		select * from t_teacher where id=#{id}
+	</select>
+	
+	<select id="showAllTeacher" resultType="Teacher">
+		select * from t_teacher
+	</select>
+	
+	<delete id="deleteTeacher" parameterType="int">
+		delete from t_teacher where id=#{id}
+	</delete>
+	
+	<update id="updateTeacher" parameterType="Teacher">
+		update t_teacher set teacherNo=#{teacherNo},teacherName=#{teacherName},departmentId=#{departmentId},sex=#{sex},inputMan=#{inputMan},lastModifyTime=#{lastModifyTime},phone=#{phone} where id=#{id}
+	</update>
+	
+	<select id="showTeacherOne1" resultType="Teacher">
+		select * from t_teacher where teacherNo=#{teacherNo}
+	</select>
+	
+	<select id="showTeacherOne2" resultType="Teacher">
+		select * from t_teacher where teacherName=#{teacherName}
+	</select>
+	
+	<select id="showTeacherOne3" resultType="Teacher">
+		select * from t_teacher where teacherNo=#{teacherNo} and teacherName=#{teacherName}
+	</select>
+	
+	<select id="teacherInfoByNo" resultType="Teacher" parameterType="String">
+		select * from t_teacher where teacherNo=#{teacherNo}
+	</select>
+</mapper>

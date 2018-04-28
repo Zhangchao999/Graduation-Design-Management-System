@@ -1,0 +1,49 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+		version="3.1" metadata-complete="true">
+	
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 配置DispatcherServlet -->
+	
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>	
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/spring-*.xml</param-value>
+		</init-param>
+	</servlet>
+	
+	<!-- <servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/images/home.jpg</url-pattern>
+	</servlet-mapping> -->
+	
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<!-- 默认匹配所有的请求 -->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<!-- 验证登陆 -->
+	<filter>
+		<filter-name>login</filter-name>
+		<filter-class>com.zc.filter.LoginFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+</web-app>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.ITeacherProgressDao">
+	<insert id="addTeacherProgress" parameterType="TeacherProgress">
+		insert into t_teacher_progress_notification values (null,#{context},#{inputMan},#{inputTime},#{studentId},#{teacherId},0)
+	</insert>
+	
+	<update id="passTeacherProgress" parameterType="int">
+		update t_teacher_progress_notification set state=2 where id=#{id}
+	</update>
+	
+	<update id="failTeacherProgress" parameterType="int">
+		update t_teacher_progress_notification set state=1 where id=#{id}
+	</update>
+	
+	<select id="getInfoByStudentId" parameterType="int" resultType="TeacherProgress">
+		select * from t_teacher_progress_notification where studentId=#{studentId}
+	</select>
+	
+	<select id="getInfoByTeacherId" parameterType="int" resultType="TeacherProgress">
+		select * from t_teacher_progress_notification where teacherId=#{teacherId}
+	</select>
+</mapper>

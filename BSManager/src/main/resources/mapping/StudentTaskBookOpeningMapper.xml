@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IStudentTaskBookOpeningDao">
+	<select id="showInfoByStudentId" parameterType="int" resultType="StudentTaskBookOpening">
+		select * from t_student_opening_report_task_book where studentId=#{studentId}
+	</select>
+	
+	<insert id="addInfoByStudentId" parameterType="int">
+		insert into t_student_opening_report_task_book values(null,#{studentId},null,null,null,null)
+	</insert>
+	
+	<update id="uploadTaskBook">
+		update t_student_opening_report_task_book set studentTaskBook=#{studentTaskBook} where studentId=#{studentId}
+	</update>
+	
+	<update id="uploadOpening">
+		update t_student_opening_report_task_book set studentOpeningResport=#{studentOpeningResport} where studentId=#{studentId}
+	</update>
+	
+	<update id="resetTaskBook" parameterType="int">
+		update t_student_opening_report_task_book set studentTaskBook="" where studentId=#{studentId}
+	</update>
+	
+	<update id="resetOpening" parameterType="int">
+		update t_student_opening_report_task_book set studentOpeningResport="" where studentId=#{studentId}
+	</update>
+	
+	<select id="getInfoByTaskBookPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentTaskBook=#{studentTaskBook}
+	</select>
+	
+	<select id="getInfoByOpeningPath" resultType="StudentTaskBookOpening" parameterType="String">
+		select * from t_student_opening_report_task_book where studentOpeningResport=#{studentOpeningResport}
+	</select>
+	
+	<update id="passOpening" parameterType="int">
+		update t_student_opening_report_task_book set completion = 2 where studentId=#{studentId}
+	</update>
+	
+	<update id="failOpening" parameterType="int">
+		update t_student_opening_report_task_book set completion = 1 where studentId=#{studentId}
+	</update>
+</mapper>
