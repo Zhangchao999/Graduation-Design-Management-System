@@ -3,6 +3,7 @@ package com.zc.web;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zc.entity.Announcement;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentScore;
 import com.zc.entity.StudentTaskBookOpening;
@@ -105,6 +108,13 @@ import net.sf.json.JSONArray;
  * teacherModifyStudentScore() 教师跳到修改信息页面
  * teacherModifyStudentScoreToDb() 教师修改学生信息
  * teacherUploadThesis4pass() 教师上传学生的最终论文
+ * 
+ * 
+ * @date 2018-5-10
+ * teacherCheckDoubtForm() 显示学生提出的所有疑惑
+ * teacherAnswerDoubtForm() 跳转到解决页面
+ * teacherAnswerDoubt() 教师提交解决方案
+ * teacherAnsweredDoubt() 查看已解决的疑惑
  * 
  */
 @Controller
@@ -985,6 +995,79 @@ public class TeacherController {
 			model.addAttribute("message", "上传任务书出错");
 			return "error.jsp";
 		}
+	}
+	
+	
+	@RequestMapping(value="/checkDoubt")
+	public String teacherCheckDoubtForm(HttpServletRequest request,Model model) {
+		Teacher currentTeacher = (Teacher)request.getSession().getAttribute("teacher");
+		int teacherId = currentTeacher.getId();
+		
+		List<Student> students = teacherService.getAllStudentInfo(teacherId);
+		List<Doubt> doubtList = new ArrayList<Doubt>();
+		for(int i=0;i<students.size();i++) {
+			int studentId = students.get(i).getId();
+			List<Doubt> doubts = teacherService.getAllDoubtByStudentId(studentId);
+			int nn = doubts.size();
+			for(int j=0;j<nn;j++) {
+				Doubt db = doubts.get(j);
+				String answer = db.getAnswer();
+				if(answer == null || "".equals(answer)) {
+					doubtList.add(db);
+				}
+			}
+		}
+		model.addAttribute("doubtList", doubtList);
+		
+		return "teacher/teacherCheckDoubt.jsp";
+	}
+	
+	@RequestMapping(value="/answerDoubtForm")
+	public String teacherAnswerDoubtForm() {
+		return "teacher/teacherAnswerDoubt.jsp";
+	}
+	
+	@RequestMapping(value="/answerDoubt")
+	public String teacherAnswerDoubt(Model model,int id,String answer) throws Exception {
+		
+		answer = new String(answer.getBytes("iso-8859-1"),"utf-8");
+		Doubt doubt = new Doubt();
+		doubt.setId(id);
+		doubt.setAnswer(answer);
+		int num = teacherService.updateDoubt(doubt);
+		if(num == 1) {
+			model.addAttribute("message", "回复成功");
+		}else {
+			model.addAttribute("message", "回复失败");
+		}
+		
+		return "teacher/main.jsp";
+	}
+	
+	@RequestMapping(value="/answeredDoubt")
+	public String teacherAnsweredDoubt(HttpServletRequest request,Model model) {
+		Teacher currentTeacher = (Teacher)request.getSession().getAttribute("teacher");
+		int teacherId = currentTeacher.getId();
+		
+		List<Student> students = teacherService.getAllStudentInfo(teacherId);
+		List<Doubt> doubtList = new ArrayList<Doubt>();
+		for(int i=0;i<students.size();i++) {
+			int studentId = students.get(i).getId();
+			List<Doubt> doubts = teacherService.getAllDoubtByStudentId(studentId);
+			int nn = doubts.size();
+			for(int j=0;j<nn;j++) {
+				Doubt db = doubts.get(j);
+				String answer = db.getAnswer();
+				if(answer == null || "".equals(answer)) {
+
+				}else {
+					doubtList.add(db);
+				}
+			}
+		}
+		model.addAttribute("doubtList", doubtList);
+		
+		return "teacher/teacherAnsweredDoubt.jsp";
 	}
 	
 }

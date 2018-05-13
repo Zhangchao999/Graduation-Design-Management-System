@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zc.entity.Announcement;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentTaskBookOpening;
 import com.zc.entity.TeacherProgress;
@@ -54,6 +55,10 @@ import com.zc.entity.Topic;
  * @author zhangC
  * 根据学生id 获得学生提交的论文信息(重复的)
  * 
+ * @date 2018-5-9
+ * @author zhangC
+ * 添加学生提出的疑惑
+ * 列出所有的疑惑
  *
  */
 public interface IStudentService {
@@ -119,5 +124,11 @@ public interface IStudentService {
 	
 	
 	ThesisInformation getThesisInforInfoByStudentId(int studentId);
+	
+	
+	int addDoubt(Doubt doubt);
+	
+	List<Doubt> getAllDoubtByStudent(int studentId);
+	
 }
 

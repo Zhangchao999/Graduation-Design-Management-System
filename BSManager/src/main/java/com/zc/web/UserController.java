@@ -147,7 +147,6 @@ public class UserController {
 		System.out.println("修改了"+num+"条数据");
 		model.addAttribute("num", num);
 		return "modifySuccess.jsp";
-		
 	}
 	
 }

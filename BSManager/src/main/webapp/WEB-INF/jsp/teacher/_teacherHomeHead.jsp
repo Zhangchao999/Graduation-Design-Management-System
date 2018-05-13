@@ -109,6 +109,24 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">
+							疑问管理
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="${pageContext.request.contextPath}/teacher/checkDoubt">提出的疑问</a>
+							</li>
+							<li>
+								<a href="${pageContext.request.contextPath}/teacher/answeredDoubt">解决的方案</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">
 							文档管理
 							<span class="caret"></span>
 						</a>

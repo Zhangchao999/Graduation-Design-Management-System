@@ -1,12 +1,14 @@
 package com.zc.dao;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.zc.BaseTest;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentScore;
 import com.zc.entity.StudentTaskBookOpening;
@@ -29,6 +31,9 @@ public class IStudentDaoTest extends BaseTest{
 	
 	@Autowired
 	private IThesisPaperDao thesisPaperDao;
+	
+	@Autowired
+	private IDoubtDao doubtDao;
 	
 	@Test
 	public void testSelectStudent() {
@@ -228,5 +233,31 @@ public class IStudentDaoTest extends BaseTest{
 		int num = thesisPaperDao.addThesisPaper(paper);
 		System.out.println(num);
 		
+	}
+	@Test
+	public void test23() {
+		Doubt d = new Doubt();
+		d.setId(1);
+		d.setStudentId(9);
+		d.setStudentDoubt("开题报告的格式是什么");
+		int num = doubtDao.addDoubt(d);
+		System.out.println(num);
+		
+		
+	}
+	
+	@Test
+	public void test24() {
+		List<Doubt> doubtList = doubtDao.getAllDoubt(9);
+		System.out.println(doubtList);
+	}
+	
+	@Test
+	public void test25() {
+		Doubt d = new Doubt();
+		d.setId(7);
+		d.setAnswer("这是解决方案");
+		int num = doubtDao.updateDoubt(d);
+		System.out.println(num);
 	}
 }

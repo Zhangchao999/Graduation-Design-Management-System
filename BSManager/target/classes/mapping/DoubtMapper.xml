@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.dao.IDoubtDao">
+	<insert id="addDoubt" parameterType="Doubt">
+		insert into t_doubt values(null,#{studentId},#{studentDoubt},#{answer})
+	</insert>
+	
+	<select id="getAllDoubt" parameterType="int" resultType="Doubt">
+		select * from t_doubt where studentId=#{studentId}
+	</select>
+	
+	<update id="updateDoubt" parameterType="Doubt">
+		update t_doubt set answer=#{answer} where id=#{id}
+	</update>
+</mapper>

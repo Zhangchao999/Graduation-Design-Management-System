@@ -7,6 +7,7 @@
 <title>教师修改信息</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/departmentManage.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/verifyPhone.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -60,7 +61,7 @@
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">联系方式:</label>
 						<div class="col-sm-10"> 
-							<input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.teacher.phone }">
+							<input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.teacher.phone }" onblur="verify();">
 						</div>
 					</div>	
 						

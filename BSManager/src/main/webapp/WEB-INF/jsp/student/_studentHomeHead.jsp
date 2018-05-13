@@ -106,6 +106,24 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">
+							提问管理
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="${pageContext.request.contextPath}/student/studentDoubt">提出疑惑</a>
+							</li>
+							<li>
+								<a href="${pageContext.request.contextPath}/student/studentDoubtList">查看解答</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">
 							公告管理
 							<span class="caret"></span>
 						</a>

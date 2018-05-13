@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zc.dao.IAnnouncementDao;
+import com.zc.dao.IDoubtDao;
 import com.zc.dao.IStudentDao;
 import com.zc.dao.IStudentScoreDao;
 import com.zc.dao.IStudentTaskBookOpeningDao;
@@ -20,6 +21,7 @@ import com.zc.dao.IThesisPaperDao;
 import com.zc.dao.IThesisTitleDao;
 import com.zc.dao.ITopicDao;
 import com.zc.entity.Announcement;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentScore;
 import com.zc.entity.StudentTaskBookOpening;
@@ -68,6 +70,8 @@ public class TeacherServiceImpl implements ITeacherService {
 	@Autowired
 	private IThesisPaperDao thesisPaperDao;
 	
+	@Autowired
+	private IDoubtDao doubtDao;
 	
 	public int addTeacher(Teacher teacher) {
 		int addNum = teacherDao.addTeacher(teacher);
@@ -484,6 +488,21 @@ public class TeacherServiceImpl implements ITeacherService {
 		
 		List<ThesisPaper> paperList = thesisPaperDao.getAllInfo();
 		return paperList;
+	}
+
+
+	public int updateDoubt(Doubt doubt) {
+		// TODO Auto-generated method stub
+		int num = doubtDao.updateDoubt(doubt);
+		return num;
+	}
+
+
+	public List<Doubt> getAllDoubtByStudentId(int studentId) {
+		// TODO Auto-generated method stub
+		List<Doubt> doubtList = doubtDao.getAllDoubt(studentId);
+		
+		return doubtList;
 	}
 	
 

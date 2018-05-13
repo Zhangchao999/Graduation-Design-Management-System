@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zc.entity.Announcement;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentScore;
 import com.zc.entity.StudentTaskBookOpening;
@@ -69,6 +70,12 @@ import com.zc.entity.Topic;
  * 根据学生id 获得学生成绩
  * 把最终论文上传  供admin查看
  * 显示所有的最终论文
+ * 
+ * @date 2018-5-10
+ * @author zhangC
+ * 更新疑惑信息
+ * 获得指定学生下的所有疑惑
+ * 
  * 
  *
  */
@@ -174,4 +181,8 @@ public interface ITeacherService {
 	
 	List<ThesisPaper> getAllPaper();
 	
+	
+	int updateDoubt(Doubt doubt);
+	
+	List<Doubt> getAllDoubtByStudentId(int studentId);
 }

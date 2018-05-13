@@ -2,6 +2,7 @@ package com.zc.web;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zc.entity.Announcement;
+import com.zc.entity.Doubt;
 import com.zc.entity.Student;
 import com.zc.entity.StudentScore;
 import com.zc.entity.StudentTaskBookOpening;
@@ -96,6 +98,12 @@ import net.sf.json.JSONObject;
  * @date 2018-4-18
  * @author zhangC
  * studentQualification()  学生答辩资格的查看
+ * 
+ * @date 2018-5-9
+ * @author zhangC
+ * studentDoubtForm() 跳转到学生提出疑惑页面
+ * studentDoubtListForm() 显示学生的疑惑，并查看是否有解决方案
+ * studentDoubtToDb() 添加学生的疑惑道数据库
  * 
  */
 
@@ -457,7 +465,7 @@ public class StudentController {
 			
 			return "student/main.jsp";
 		}else {
-			model.addAttribute("message", "已上传开题报告，不可推选");
+			model.addAttribute("message", "已上传开题报告，不可退选");
 			return "student/main.jsp";
 		}
 	}
@@ -710,14 +718,41 @@ public class StudentController {
 			}
 			
 		}
-			
-
-			
-		
-		
-		
 		return "student/studentQualifications.jsp";
 	}
 	
+	
+	@RequestMapping(value="/studentDoubt")
+	public String studentDoubtForm() {
+		return "student/studentDoubt.jsp";
+	}
+	
+	@RequestMapping(value="/studentDoubtList")
+	public String studentDoubtListForm(Model model,HttpServletRequest request) {
+		Student currentUser = (Student)request.getSession().getAttribute("student");
+		int studentId = currentUser.getId();
+		List<Doubt> doubtList = studentService.getAllDoubtByStudent(studentId);
+		for(int i= 0;i<doubtList.size();i++) {
+			String answer = doubtList.get(i).getAnswer();
+			if(answer == null || "".equals(answer)) {
+				doubtList.get(i).setAnswer("教师还未做出解答");
+			}
+		}
+		model.addAttribute("doubtList", doubtList);
+		return "student/studentDoubtList.jsp";
+	}
+	
+	@RequestMapping(value="/studentDoubtToDb")
+	public String studentDoubtToDb(Model model,String doubt,HttpServletRequest request) throws Exception {
+		Student currentUser = (Student)request.getSession().getAttribute("student");
+		int studentId = currentUser.getId();
+		doubt = new String(doubt.getBytes("iso-8859-1"),"utf-8");
+		Doubt d = new Doubt();
+		d.setStudentId(studentId);
+		d.setStudentDoubt(doubt);
+		studentService.addDoubt(d);
+		model.addAttribute("message", "添加疑问成功");
+		return "student/main.jsp";
+	}
 	
 }
