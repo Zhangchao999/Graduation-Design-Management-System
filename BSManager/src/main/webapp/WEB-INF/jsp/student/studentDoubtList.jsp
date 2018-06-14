@@ -17,28 +17,35 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>查看疑惑</h4>
-				<table class="table ">
+				<!-- <h4>查看疑惑</h4> -->
+				<ul class="list-inline">
+					<li>提问管理</li>
+					<li>/</li>
+					<li>查看解答</li>
+				</ul>
+				<br>
+				<table class="table">
 					<thead>
 						<tr>
-							<th>
-								<div class="col-md-7">
-									<font color="red">提出的问题</font>
-								</div>
-							</th>
-							<th>
-								<div class="col-md-5">
-									<font color="red">解答</font>
-								</div>
-							</th>
+							<td class="col-md-7">
+								<font  size="4px">问题</font>
+							</td>
+							<td class="col-md-5">
+								<font  size="4px">解答</font>
+							</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						<c:forEach items="${doubtList }" var="doubt">
 							<tr>
-								<th class="col-md-9">${doubt.studentDoubt }</th>
-								<th class="col-md-3">${doubt.answer }</th>
+								<td class="col-md-7">
+									<font >${doubt.studentDoubt }</font>
+									
+								</td>
+								<td class="col-md-5">
+									<font color="blue">${doubt.answer }</font>	
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

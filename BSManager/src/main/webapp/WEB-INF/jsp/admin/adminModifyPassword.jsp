@@ -14,9 +14,17 @@
 	</div>
 	
 	<div class="container">
-		<div class="col-md-2"></div>
+		
+		<div class="col-md-2">
+			
+		</div>
 		<div class="col-md-8">
-			<h4>修改密码</h4>
+			<!-- <h4>修改密码</h4> -->
+			<ul class="list-inline">
+				<li>信息管理</li>
+				<li>/</li>
+				<li>修改密码</li>
+			</ul>
 			<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/modifyPassword" method="post">
 				<!-- 第一个是用户名  第二个是原始密码-->
 				<input type="hidden" class="form-control" name="currentUserNo" id="currentUserNo" value="${sessionScope.currentUser.userNo }">
@@ -24,21 +32,21 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">当前密码:</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="oldPassword" id="oldPassword" onblur="getPassword();">
+						<input type="password" class="form-control" name="oldPassword" id="oldPassword" onblur="getPassword();" required>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">新的密码:</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="newPassword1" id="newPassword1">
+						<input type="password" class="form-control" name="newPassword1" id="newPassword1" required>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">再次输入:</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="newPassword2" id="newPassword2" onblur="comparePassword();">
+						<input type="password" class="form-control" name="newPassword2" id="newPassword2" onblur="comparePassword();" required>
 					</div>
 				</div>
 				

@@ -19,7 +19,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>课题结果</h4>
+				<!-- <h4>课题结果</h4> -->
+				<ul class="list-inline">
+					<li>课题管理</li>
+					<li>/</li>
+					<li>课题结果</li>
+				</ul>
 				<p><font color="red" size="2px">${thesisMessage }</font></p>
 				
 				<!-- 点击查看上传的课题 -->
@@ -51,13 +56,13 @@
 					<tbody>
 						<c:forEach items="${thesisTitleList }" var="thesisTitle">
 							<tr>
-								<th>${thesisTitle.thesisName }</th>
-								<th>${thesisTitle.statusName }</th>
-								<th>
+								<td>${thesisTitle.thesisName }</td>
+								<td>${thesisTitle.statusName }</td>
+								<td>
 									<a href="<c:url value="/teacher/modifyThesisTitleFrom?id=${thesisTitle.id }"/>">修改</a>
 									&nbsp;
 									<a href="<c:url value="/teacher/deleteThesisTitle?id=${thesisTitle.id }"/>">删除</a>
-								</th>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

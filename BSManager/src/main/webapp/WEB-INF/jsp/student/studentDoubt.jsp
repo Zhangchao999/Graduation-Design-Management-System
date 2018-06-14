@@ -15,10 +15,15 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>提出疑惑</h4>
+				<!-- <h4>提出疑惑</h4> -->
+				<ul class="list-inline">
+					<li>提问管理</li>
+					<li>/</li>
+					<li>提出疑惑</li>
+				</ul>
+				<br>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/student/studentDoubtToDb" method="post">
 					<div class="form-group">
-						<label>遇到的问题是：</label>
 						<textarea class="form-control" id="doubt" name="doubt" placeholder="目前遇到的问题"></textarea>
 					</div>
 					

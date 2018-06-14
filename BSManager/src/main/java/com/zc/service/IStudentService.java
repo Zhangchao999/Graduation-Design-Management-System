@@ -130,5 +130,8 @@ public interface IStudentService {
 	
 	List<Doubt> getAllDoubtByStudent(int studentId);
 	
+	
+	String getThesisDesc(int thesisId);
+	
 }
 

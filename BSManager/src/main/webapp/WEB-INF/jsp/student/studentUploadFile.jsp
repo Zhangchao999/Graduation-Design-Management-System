@@ -17,7 +17,12 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<!-- enctype="multipart/form-data" -->
-				<h4>上传文档</h4>
+				<!-- <h4>上传文档</h4> -->
+				<ul class="list-inline">
+					<li>文档管理</li>
+					<li>/</li>
+					<li>上传文档</li>
+				</ul>
 				
 				<!-- 学生不用上传任务书 -->
 				

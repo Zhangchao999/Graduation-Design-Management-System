@@ -16,16 +16,20 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>添加成绩</h4>
-				
-				
+				<!-- <h4>添加成绩</h4> -->
+				<ul class="list-inline">
+					<li>成绩管理</li>
+					<li>/</li>
+					<li>添加成绩</li>
+				</ul>
+				<p><font color="red" size="4px">${message }</font> </p>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/addStudentScore" method="post">
 					<div class="row">
 						<div class="col-md-3">
 							<div class="form-group">
 								<label>学生姓名:</label>
 								<div>
-									<select class="form-control" id="studentList" name="studentList" onclick="showStudent();">
+									<select class="form-control" id="studentList" name="studentList">
 										<option value="">请选择...</option>
 									</select>
 								</div>
@@ -36,7 +40,7 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<label>添加学生成绩：</label>
-								<input class="form-control" id="score" name="score" placeholder="成绩" />
+								<input class="form-control" id="score" name="score" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="成绩" />
 							</div>
 						</div>
 						<div class="col-md-5"></div>

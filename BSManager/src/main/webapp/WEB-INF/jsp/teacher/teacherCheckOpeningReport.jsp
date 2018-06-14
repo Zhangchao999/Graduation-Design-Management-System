@@ -17,15 +17,20 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>审核开题报告</h4>
+				<!-- <h4>审核开题报告</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>审核开题报告</li>
+				</ul>
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<td>学生学号</td>
-							<td>学生姓名</td>
-							<td>文件下载</td>
-							<td>当前状况</td>
-							<td>完成情况</td>
+							<th>学生学号</th>
+							<th>学生姓名</th>
+							<th>文件下载</th>
+							<th>当前状况</th>
+							<th>完成情况</th>
 						</tr>
 					</thead>
 					
@@ -46,15 +51,15 @@
 								<c:param name="filePath" value="${student.studentOpeningPath }"></c:param>
 							</c:url>
 							<tr>
-								<th>${student.studentNo }</th>
-								<th>${student.studentName }</th>
-								<th><a href="${downUrl }">${student.studentOpeningName }</a></th>
-								<th>${student.completionName }</th>
-								<th>
+								<td>${student.studentNo }</td>
+								<td>${student.studentName }</td>
+								<td><a href="${downUrl }">${student.studentOpeningName }</a></td>
+								<td>${student.completionName }</td>
+								<td>
 									<a href="${passUrl }">完成</a> &nbsp;&nbsp;&nbsp;
 									<a href="${failUrl }">未完成</a>
 									
-								</th>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

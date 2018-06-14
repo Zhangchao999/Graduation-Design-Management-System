@@ -15,7 +15,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>修改学生</h4>
+				<!-- <h4>修改学生</h4> -->
+				<ul class="list-inline">
+					<li>成绩管理</li>
+					<li>/</li>
+					<li>修改学生成绩</li>
+				</ul>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/modifyStudentScoreToDb" method="post">
 					<input type="hidden" name="id" id="id" value="${scoreList.studentId }"/>
 					
@@ -30,7 +35,7 @@
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">新的成绩:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="studentScoreNew" name="studentScoreNew">
+							<input type="text" class="form-control" id="studentScoreNew" onkeyup="value=value.replace(/[^\d]/g,'')" name="studentScoreNew">
 						</div>
 					</div>
 

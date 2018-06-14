@@ -15,8 +15,11 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>查看答辩资格</h4>
-				<p>
+				<!-- <h4>查看答辩资格</h4> -->
+				<ul class="list-inline">
+					<li>查看答辩资格</li>
+				</ul>
+				<p align="center">
 					<font color="red" size="5px">${message }</font>
 				</p>
 			</div>

@@ -19,7 +19,13 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>添加导师</h4>
+				<!-- <h4>添加导师</h4> -->
+				<ul class="list-inline">
+					<li>导师管理</li>
+					<li>/</li>
+					<li>添加导师</li>
+				</ul>
+				<p><font color="red" size="5px">${message }</font></p>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/teacherAdd" method="post">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">导师编号:</label>
@@ -38,7 +44,7 @@
 					<div class="form-group">
 						<label for="department" class="col-sm-2 control-label">所在院系:</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="department" name="department" onclick="addDepartment();" >
+							<select class="form-control" id="department" name="department" >
 								<option value="">请选择...</option>
 							</select>
 						</div>

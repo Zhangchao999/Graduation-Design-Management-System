@@ -17,12 +17,16 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>管理员信息</h4>
-				<p><font color="red" size="4px">${message }</font> </p>
+				<!-- <h4>管理员信息</h4> -->
+				<ul class="list-inline">
+					<li>管理员信息</li>
+				</ul>
+				<br>
+				<p><font color="red" size="4px">${message }</font></p>
 				<table class="table table-bordered" >
 					<tr>
-						<td width="15%" align="right">当前账号:</td>
-						<td width="85%">${sessionScope.currentUser.userNo }</td>
+						<th width="15%" align="right"><font size="4px">当前账号:</font></th>
+						<td width="85%"><font size="4px">${sessionScope.currentUser.userNo }</font></td>
 					</tr>
 
 				</table>

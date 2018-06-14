@@ -17,28 +17,33 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>审核课题</h4>
-				<table class="table">
+				<!-- <h4>审核课题</h4> -->
+				<ul class="list-inline">
+					<li>选题管理</li>
+					<li>/</li>
+					<li>审核选题</li>
+				</ul>
+				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<td width="25%">课题名</td>
-							<td width="50%">课题描述</td>
-							<td width="10%">目前状态</td>
-							<td >操作</td>
+							<th width="25%">课题名</th>
+							<th width="50%">课题描述</th>
+							<th width="10%">目前状态</th>
+							<th >操作</th>
 						</tr>
 					</thead>
 					
 					<tbody>
 						<c:forEach items="${thesisTitleList }" var="thesis" varStatus="loop">
 							<tr>
-								<th>${thesis.thesisName }</th>
-								<th>${thesis.description }</th>
-								<th>${thesis.statusName }</th>
-								<th>
+								<td >${thesis.thesisName }</td>
+								<td >${thesis.description }</td>
+								<td >${thesis.statusName }</td>
+								<td>
 									<a href="<c:url value="/admin/agreeThesis?id=${thesis.id }"/>">通过</a>
 									&nbsp;
 									<a href="<c:url value="/admin/disagreeThesis?id=${thesis.id }"/>">未通过</a>
-								</th>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

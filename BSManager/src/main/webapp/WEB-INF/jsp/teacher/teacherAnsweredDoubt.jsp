@@ -17,12 +17,17 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-			<h4>已解决学生的问题</h4>
+			<!-- <h4>已解决学生的问题</h4> -->
+			<ul class="list-inline">
+					<li>疑问管理</li>
+					<li>/</li>
+					<li>解决的方案</li>
+				</ul>
 
-				<table class="table table-striped">
+				<table class="table">
 					<tr>
-						<td>问题</td>
-						<td>回复</td>
+						<th>问题</th>
+						<th>回复</th>
 					</tr>
 
 					<c:forEach items="${doubtList }" var="doubt">

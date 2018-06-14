@@ -17,22 +17,27 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>管理的学生</h4>
+				<!-- <h4>管理的学生</h4> -->
+				<ul class="list-inline">
+					<li>学生管理</li>
+					<li>/</li>
+					<li>查看学生信息</li>
+				</ul>
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<td>学生学号</td>
-							<td>学生姓名</td>
-							<td>所选课题</td>
+							<th>学生学号</th>
+							<th>学生姓名</th>
+							<th>所选课题</th>
 						</tr>
 					</thead>
 					
 					<tbody>
 						<c:forEach items="${studentList }" var="student" varStatus="loop">
 							<tr>
-								<th>${student.studentNo }</th>
-								<th>${student.studentName }</th>
-								<th>${student.thesisName }</th>
+								<td>${student.studentNo }</td>
+								<td>${student.studentName }</td>
+								<td>${student.thesisName }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

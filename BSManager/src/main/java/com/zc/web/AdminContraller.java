@@ -83,7 +83,7 @@ import com.zc.service.ITeacherService;
  * @date 2018-4-18
  * @author zhangC
  * adminShowThesisPaper() 管理员查看所有的最终论文
- * fileDownload() 问价下载
+ * fileDownload() 文件下载
  *
  */
 
@@ -210,7 +210,8 @@ public class AdminContraller {
 			teacher.setPhone(phone);
 			
 			int addNum = teacherService.addTeacher(teacher);
-			System.out.println("添加数目："+addNum);
+			// System.out.println("添加数目："+addNum);
+			model.addAttribute("message", "成功添加一条教师信息");
 			return "admin/adminTeacherAdd.jsp";
 		}
 		
@@ -235,10 +236,11 @@ public class AdminContraller {
 	}
 	
 	@RequestMapping(value="/deleteTeacher")
-	public String adminDeleteTeacher(int id) {
+	public String adminDeleteTeacher(int id,Model model) {
 		// System.out.println(id);
 		int num = teacherService.deleteTeacher(id);
-		System.out.println("删除了"+num+"条数据！");
+		// System.out.println("删除了"+num+"条数据！");
+		model.addAttribute("message", "成功删除一条教师信息");
 		return "admin/adminTeacherManage.jsp";
 	}
 	
@@ -391,7 +393,9 @@ public class AdminContraller {
 			student.setLastModifyTime(currentTime);
 			
 			int addNum = studentService.addStudent(student);
-			System.out.println("添加数目："+addNum);
+			// System.out.println("添加数目："+addNum);
+			
+			model.addAttribute("message", "成功添加一条学生信息");
 			
 			return "admin/adminStudentAdd.jsp";
 		}
@@ -494,10 +498,11 @@ public class AdminContraller {
 	}
 	
 	@RequestMapping(value="/deleteStudent")
-	public String adminDeleteStudent(int id) {
+	public String adminDeleteStudent(int id,Model model) {
 		// System.out.println(id);
 		int num = studentService.deleteStudent(id);
-		System.out.println("删除了"+num+"条数据！");
+		//System.out.println("删除了"+num+"条数据！");
+		model.addAttribute("message", "成功删除一条学生信息");
 		return "admin/adminStudentManage.jsp";
 	}
 	

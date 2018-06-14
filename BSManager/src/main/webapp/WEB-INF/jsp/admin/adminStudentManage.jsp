@@ -17,7 +17,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>学生管理</h4>
+				<!-- <h4>学生管理</h4> -->
+				<ul class="list-inline">
+					<li>学生管理</li>
+					<li>/</li>
+					<li>学生操作</li>
+				</ul>
 				
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/showAllStudent" method="post">
 					<div class="row">
@@ -37,25 +42,22 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div class="form-group">
-								<label class="control-label">学生学号:</label>
 								<div >
-									<input type="text" class="form-control" id="studentNo" name="studentNo">
+									<input type="text" placeholder="学生学号" class="form-control" id="studentNo" name="studentNo">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-1"></div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label class="control-label">学生姓名:</label>
 								<div>
-									<input type="text" class="form-control" id="studentName" name="studentName">
+									<input type="text" placeholder="学生姓名" class="form-control" id="studentName" name="studentName">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-1"></div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label class="control-label">&nbsp;</label>
 								<div>
 									<button type="submit" class="btn btn-primary">提交</button>
 									<p><font color="red" size="2px">${showMessage }</font></p>
@@ -70,13 +72,13 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<td>学号</td>
-							<td>姓名</td>
-							<td>性别</td>
-							<td>专业</td>
-							<td>年级</td>
-							<td>联系方式</td>
-							<td>操作</td>
+							<th>学号</th>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>专业</th>
+							<th>年级</th>
+							<th>联系方式</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 					

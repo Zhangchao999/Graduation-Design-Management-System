@@ -52,7 +52,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">院系:</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="department" name="department" onclick="addDepartment();">
+							<select class="form-control" id="department" name="department">
 								<option value="">请选择...</option>
 							</select>
 						</div>

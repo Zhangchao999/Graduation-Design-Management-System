@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>修改成功</title>
+<style>
+	body{        
+	    background-image: url(images/stu.jpg);
+	    height: 100%;
+   		width: 100%;
+	}
+</style>
 <script type="text/javascript"> 
 	var t=5;//设定跳转的时间 
 	setInterval("refer()",1000); //启动1秒定时 
@@ -16,9 +23,11 @@
 	    t--; // 计数器递减 
 	    //本文转自： 
 	} 
-</script> 
+</script>
+
 </head>
 <body>
+	<br> <br><br> <br>
 	<div align="center">
 		<font color="blue" size="5px">修改成功</font>
 		<font id="show" color="blue" size="5px"></font>

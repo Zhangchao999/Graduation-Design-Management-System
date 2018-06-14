@@ -23,7 +23,7 @@
 	</delete>
 	
 	<select id="showAllThesisTitleAd" resultType="ThesisTitle">
-		select * from t_thesis_title
+		select * from t_thesis_title order by submitTime DESC
 	</select>
 	
 	<update id="agreeThesis" parameterType="int">

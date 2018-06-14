@@ -5,8 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link type="text/css" rel="stylesheet" href="../dist/css/bootstrap.css">
+<script type="text/javascript" src="../dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../dist/js/jquery.min.js"></script> -->
 </head>
-<body>
+<body bgcolor="#bcd09b">
 <!-- 此页面为学生登陆界面 -->
 	<div class="container">
 		<!-- Static navbar -->
@@ -30,7 +33,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="${pageContext.request.contextPath}/student/studentLogin.jsp">登陆</a>
+						<a href="${pageContext.request.contextPath}/student/studentLogin.jsp">学生登陆</a>
 					</li>
 				</ul>
 			</div>
@@ -56,6 +59,5 @@
 			<a href="http://getbootstrap.com">Bootstrap</a>
 		</p>
 	</div>
-
 </body>
 </html>

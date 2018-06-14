@@ -62,7 +62,7 @@ public class UserController {
 		if(currentUser.getPermission()==3) {
 			// request.getSession().setAttribute("userNo", userNo);
 			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(108000);
+			session.setMaxInactiveInterval(3600);
 			
 			session.setAttribute("currentUser", currentUser);
 			//model.addAttribute("userNo", userNo);
@@ -83,7 +83,7 @@ public class UserController {
 		}
 		if(currentUser.getPermission()==2) {
 			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(108000);
+			session.setMaxInactiveInterval(3600);
 			// 在t_user表的信息
 			session.setAttribute("currentUser", currentUser);
 			
@@ -111,7 +111,7 @@ public class UserController {
 		}
 		if(currentUser.getPermission()==1) {
 			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(108000);
+			session.setMaxInactiveInterval(3600);
 			// t_user 表中的关于学生的信息
 			session.setAttribute("currentUser", currentUser);
 			

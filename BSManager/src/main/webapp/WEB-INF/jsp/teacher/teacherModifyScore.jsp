@@ -17,12 +17,17 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>成绩管理</h4>
-				<table class="table table-striped">
+				<!-- <h4>成绩管理</h4> -->
+				<ul class="list-inline">
+					<li>成绩管理</li>
+					<li>/</li>
+					<li>查看成绩</li>
+				</ul>
+				<table class="table">
 					<tr>
-						<td>学生姓名</td>
-						<td>当前成绩</td>
-						<td>操作</td>
+						<th>学生姓名</th>
+						<th>当前成绩</th>
+						<th>操作</th>
 					</tr>
 					
 					<c:forEach items="${studentList }" var="student">

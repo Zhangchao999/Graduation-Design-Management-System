@@ -6,6 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员主页</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<style>
+	body{        
+	    background-image: url(../images/adm.jpg);
+	   	background-attachment: fixed;
+	}
+	
+	*{
+     border: 0px solid transparent !important;
+ 	}
+ 	
+ 	th,td{
+ 		text-align: center
+ 	}
+</style>
 </head>
 <body>
 

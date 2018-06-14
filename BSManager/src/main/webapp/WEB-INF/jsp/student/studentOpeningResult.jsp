@@ -15,7 +15,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>完成情况</h4>
+				<!-- <h4>完成情况</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>开题报告完成情况</li>
+				</ul>
 				<div align="center">
 					<p><font color="red" size="5px">${message }</font></p>
 				</div>

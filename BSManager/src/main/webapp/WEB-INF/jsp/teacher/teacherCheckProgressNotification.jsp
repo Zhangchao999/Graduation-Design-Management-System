@@ -17,7 +17,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>审核阶段任务</h4>
+				<!-- <h4>审核阶段任务</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>审核阶段任务</li>
+				</ul>
 				<table class="table table-hover ">
 					<thead>
 						<tr>
@@ -41,15 +46,15 @@
 							</c:url>
 
 							<tr>
-								<th>${progress.studentName }</th>
-								<th>${progress.thesisTitleName }</th>
-								<th>${progress.context }</th>
-								<th>${progress.stateName }</th>
-								<th>
+								<td>${progress.studentName }</td>
+								<td>${progress.thesisTitleName }</td>
+								<td>${progress.context }</td>
+								<td>${progress.stateName }</td>
+								<td>
 									<a href="${passUrl }">通过</a>
 									&nbsp;&nbsp;&nbsp;
 									<a href="${failUrl }">未通过</a>
-								</th>
+								</td>
 
 							</tr>
 						</c:forEach>

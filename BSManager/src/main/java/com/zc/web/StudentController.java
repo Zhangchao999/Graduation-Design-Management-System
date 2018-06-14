@@ -240,15 +240,23 @@ public class StudentController {
 				String taskBookPath = ttbo.getTaskBook();
 				String openingPath = ttbo.getOpeningReport();
 				
-				String[] str1 = taskBookPath.split("\\\\");
-				String taskBookName = str1[str1.length-1].toString();
-				
-				String[] str2 = openingPath.split("\\\\");
-				String openingName = str2[str2.length-1].toString();
-				
 				Map<String, String> fileList = new HashMap<String, String>();
-				fileList.put(taskBookName, taskBookPath);
-				fileList.put(openingName, openingPath);
+
+				if(taskBookPath == null || "".equals(taskBookPath)) {
+					
+				}else {
+					String[] str1 = taskBookPath.split("\\\\");
+					String taskBookName = str1[str1.length-1].toString();
+					fileList.put(taskBookName, taskBookPath);
+				}
+				
+				if(openingPath == null || "".equals(openingPath)) {
+					
+				}else {
+					String[] str2 = openingPath.split("\\\\");
+					String openingName = str2[str2.length-1].toString();
+					fileList.put(openingName, openingPath);
+				}
 				model.addAttribute("fileList", fileList);
 				
 				return "student/studentViewTaskBookAndOpening.jsp";
@@ -755,4 +763,15 @@ public class StudentController {
 		return "student/main.jsp";
 	}
 	
+	@RequestMapping(value="/getThesisDescById")
+	public void getThesisDescById(Model model,int topicId,HttpServletResponse response) throws Exception {
+		String description = studentService.getThesisDesc(topicId);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("desc", description);
+		JSONObject json = JSONObject.fromObject(map);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter write = response.getWriter();
+		write.write(json.toString());
+		write.close();
+	}
 }

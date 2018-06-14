@@ -1,9 +1,9 @@
 
- 
+ window.onload = function(){
+	addMajor();
+ }	 
  var xmlHttpRequest;
- var clickNum  = 0;
  function addMajor(){
- 	clickNum++;
  	if (window.XMLHttpRequest) {
 		xmlHttpRequest = new XMLHttpRequest();
 	} else {
@@ -20,22 +20,10 @@
  		var majors = xmlHttpRequest.responseText;
  		var maj = eval("("+majors+")");
  		var mm = document.getElementById("major");
- 		
- 		
- 		if(clickNum%2==0){
- 			for(var i=0;i<maj.length;i++){
- 				var id = maj[i].id;
- 				var name = maj[i].majorName;
-	 		 	mm.options.add(new Option(name,id));
-	 		}
- 		}else if(clickNum%2==1){
- 			mm.options.length = 0;
- 			for(var i=0;i<maj.length;i++){
- 				var id = maj[i].id;
- 				var name = maj[i].majorName;
-	 		 	mm.options.add(new Option(name,id));
-	 		}
+		for(var i=0;i<maj.length;i++){
+			var id = maj[i].id;
+			var name = maj[i].majorName;
+ 		 	mm.options.add(new Option(name,id));
  		}
- 		
  	}
  }

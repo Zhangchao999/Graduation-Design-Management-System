@@ -17,12 +17,17 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>发布阶段通知</h4>
+				<!-- <h4>发布阶段通知</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>发布阶段任务</li>
+				</ul>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/publishTeacherProgress" method="post">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">学生姓名:</label>
 						<div class="col-sm-8">
-							<select class="form-control" id="studentId" name="studentId" onclick="showStudentList();">
+							<select class="form-control" id="studentId" name="studentId">
 								<option value="">请选择...</option>
 							</select>
 						</div>

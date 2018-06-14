@@ -16,11 +16,15 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>发布公告</h4>
+				<!-- <h4>发布公告</h4> -->
+				<ul class="list-inline">
+					<li>公告管理</li>
+					<li>/</li>
+					<li>发布公告</li>
+				</ul>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/publishAnnouncement" method="post">
 					<div class="form-group">
-						<label>公告内容：</label>
-						<textarea class="form-control" id="announcement" name="announcement" placeholder="公告内容..."></textarea>
+						<textarea class="form-control" placeholder="公告内容" id="announcement" name="announcement" placeholder="公告内容..."></textarea>
 					</div>
 					
 					<div class="form-group">

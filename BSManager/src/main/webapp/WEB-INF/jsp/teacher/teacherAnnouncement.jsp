@@ -17,22 +17,23 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>查看公告</h4>
+				<!-- <h4>查看公告</h4> -->
+				<ul class="list-inline">
+					<li>公告管理</li>
+					<li>/</li>
+					<li>查看公告</li>
+				</ul>
 				<p>
 					<font size="4px" color="red">${message }</font>
 				</p>
 				<table class="table ">
 					<thead>
 						<tr>
-							<th>
-								<div class="col-md-7">
-									<font color="red">内容</font>
-								</div>
+							<th class="col-md-9">
+								<font >内容</font>
 							</th>
-							<th>
-								<div class="col-md-5">
-									<font color="red"></font>
-								</div>
+							<th class="col-md-3">
+								<font >时间</font>
 							</th>
 						</tr>
 					</thead>
@@ -40,8 +41,8 @@
 					<tbody>
 						<c:forEach items="${announcementList }" var="announce">
 							<tr>
-								<th class="col-md-9">${announce.context }</th>
-								<th class="col-md-3">${announce.timeFormat }</th>
+								<td class="col-md-9">${announce.context }</td>
+								<td class="col-md-3">${announce.timeFormat }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

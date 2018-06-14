@@ -17,9 +17,14 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>填写阶段任务</h4>
+				<!-- <h4>填写阶段任务</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>查看阶段任务</li>
+				</ul>
 				
-				<table class="table table-striped">
+				<table class="table">
 					<tr>
 						<td>阶段任务说明</td>
 						<td>是否通过</td>

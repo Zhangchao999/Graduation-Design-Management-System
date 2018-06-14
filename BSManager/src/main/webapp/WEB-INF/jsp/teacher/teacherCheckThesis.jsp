@@ -17,11 +17,16 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>审核论文</h4>
-				<table class="table table-hover ">
+				<!-- <h4>审核论文</h4> -->
+				<ul class="list-inline">
+					<li>毕业设计管理</li>
+					<li>/</li>
+					<li>审核论文</li>
+				</ul>
+				<table class="table">
 					<thead>
 						<tr>
-							<th>学生姓名</th>
+							<th width="10%">学生姓名</th>
 							<th>课题名</th>
 							<th>论文</th>
 							<th>当前状态</th>
@@ -45,17 +50,17 @@
 						</c:url>
 
 							<tr>
-								<th>${file.studentName }</th>
-								<th>${file.thesisName }</th>
-								<th>
+								<td>${file.studentName }</td>
+								<td>${file.thesisName }</td>
+								<td>
 									<a href="${downUrl }">${file.fileName }</a>
-								</th>
-								<th>${file.completionName }</th>
-								<th>
+								</td>
+								<td>${file.completionName }</td>
+								<td>
 									<a href="${passUrl }">通过</a>
 									&nbsp;&nbsp;&nbsp;
 									<a href="${failUrl }">未通过</a>
-								</th>
+								</td>
 
 							</tr>
 						</c:forEach>

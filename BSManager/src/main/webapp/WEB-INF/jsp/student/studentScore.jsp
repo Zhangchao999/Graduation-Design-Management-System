@@ -15,12 +15,17 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>查看成绩</h4>
-				<table class="table table-striped">
+				<!-- <h4>查看成绩</h4> -->
+				<ul class="list-inline">
+					<li>成绩管理</li>
+					<li>/</li>
+					<li>查看成绩</li>
+				</ul>
+				<table class="table">
 					<tr>
-						<td>学生姓名</td>
-						<td>课题名</td>
-						<td>成绩</td>
+						<td><strong>学生姓名</strong></td>
+						<td><strong>课题名</strong></td>
+						<td><strong>成绩</strong></td>
 					</tr>
 					<tr>
 						<td>${studentList.studentName }</td>

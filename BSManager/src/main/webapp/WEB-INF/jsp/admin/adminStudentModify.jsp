@@ -51,7 +51,7 @@
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">专业:</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="major" name="major" onclick="addMajor();">
+							<select class="form-control" id="major" name="major">
 								<option value="" >请选择...</option>
 							</select>
 						</div>

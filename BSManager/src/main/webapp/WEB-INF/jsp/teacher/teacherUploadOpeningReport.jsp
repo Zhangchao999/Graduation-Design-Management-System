@@ -16,10 +16,15 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>发布开题报告</h4>
+				<!-- <h4>发布开题报告</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>发布开题报告</li>
+				</ul>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/uploadOpening" method="post" enctype="multipart/form-data">
 					<div class="col-md-4">
-						<select class="form-control" id="topic4Teacher" name="topic4Teacher" onclick="addTopic4Teacher();">
+						<select class="form-control" id="topic4Teacher" name="topic4Teacher">
 							<option value="">选择要发布的课题</option>
 						</select>
 					</div>

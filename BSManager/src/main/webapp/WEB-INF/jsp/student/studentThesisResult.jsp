@@ -19,23 +19,28 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>选题结果</h4>
+				<!-- <h4>选题结果</h4> -->
+				<ul class="list-inline">
+					<li>课题管理</li>
+					<li>/</li>
+					<li>查看结果</li>
+				</ul>
 				<font></font>
 				<table class="table table-bordered" >
 					<tr>
-						<td width="15%" align="right">学号:</td>
+						<th width="15%" align="right">学号:</th>
 						<td width="85%">${sessionScope.student.studentNo }</td>
 					</tr>
 					<tr>
-						<td align="right">选择课题:</td>
+						<th align="right">选择课题:</th>
 						<td >${topicName }</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td align="right">操作:</td>
 						<td >
 							<a href="${pageContext.request.contextPath}/student/deleteChosenTopic?studentId=${sessionScope.student.id }">退选当前课题</a>
 						</td>
-					</tr>
+					</tr> --%>
 				</table>
 				
 			</div>

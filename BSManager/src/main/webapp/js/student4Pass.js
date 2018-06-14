@@ -1,9 +1,9 @@
-
+ window.onload = function(){
+	showStudent();
+ }
  
  var xmlHttpRequest;
- var clickNum  = 0;
  function showStudent(){
- 	clickNum++;
  	if (window.XMLHttpRequest) {
 		xmlHttpRequest = new XMLHttpRequest();
 	} else {
@@ -31,24 +31,10 @@
  		
  		var dd = document.getElementById("studentList");
  		
- 		if(clickNum%2==0){
- 			for(var i=0;i<student.length;i++){
- 				var id = student[i].id;
- 				var name = student[i].studentName;
-	 		 	dd.options.add(new Option(name,id));
-	 		}
- 		}else if(clickNum%2==1){
- 			dd.options.length = 0;
- 			for(var i=0;i<student.length;i++){
- 				var id = student[i].id;
- 				var name = student[i].studentName;
-	 		 	dd.options.add(new Option(name,id));
-	 		}
+		for(var i=0;i<student.length;i++){
+			var id = student[i].id;
+			var name = student[i].studentName;
+ 		 	dd.options.add(new Option(name,id));
  		}
- 		
- 		
- 		
- 		
- 		
  	}
  }

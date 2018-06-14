@@ -15,22 +15,23 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10" >
-				<h4>查看公告</h4>
+			<div class="col-md-2"></div>
+			<div class="col-md-8" >
+				<!-- <h4>查看公告</h4> -->
+				<ul class="list-inline">
+					<li>公告管理</li>
+					<li>/</li>
+					<li>查看公告</li>
+				</ul>
 				<p><font size="4px" color="red">${message }</font></p>
 				<table class="table ">
 					<thead>
 						<tr>
-							<div class="row">
-							<th>
-								<div class="col-md-6"><font color="red">内容</font></div>
+							<th class="col-md-8">
+								<font size="4px">内容</font>
 							</th>
-							<th>
-								<div class="col-md-4"><font color="red"></font></div>
-							</th>
-							<th>
-								<div class="col-md-2"><font color="red"></font></div>
+							<th class="col-md-3">
+								<font size="4px">时间</font>
 							</th>
 							</div>
 						</tr>
@@ -43,20 +44,18 @@
 							</c:url>
 
 							<tr>
-								<div class="row">
-									<th class="col-md-9" >${announce.context }</th>
-									<th class="col-md-2">${announce.timeFormat }</th>
-									<th class="col-md-1">
-										<a href="${deleteUrl }">删除</a>
-									</th>
-								</div>
+								<td class="col-md-8" >${announce.context }</td>
+								<td class="col-md-3">${announce.timeFormat }</td>
+								<td class="col-md-1">
+									<a href="${deleteUrl }">删除</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				
 			</div>
-			<div class="col-md-1"></div>
+			<div class="col-md-2"></div>
 		</div>
 
 	</div>

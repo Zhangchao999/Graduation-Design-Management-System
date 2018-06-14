@@ -16,7 +16,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>上传课题</h4>
+				<!-- <h4>上传课题</h4> -->
+				<ul class="list-inline">
+					<li>课题管理</li>
+					<li>/</li>
+					<li>上传课题</li>
+				</ul>
 				<p><font color="red" size="4px">${message }</font> </p>
 				<form action="${pageContext.request.contextPath}/teacher/uploadThesisTitle" method="post">
 					<div class="form-group">

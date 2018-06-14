@@ -22,13 +22,17 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-			<h4>解答学生的问题</h4>
+			<!-- <h4>解答学生的问题</h4> -->
+			<ul class="list-inline">
+					<li>疑问管理</li>
+					<li>/</li>
+					<li>解答疑问</li>
+				</ul>
 				<form role="form" class="form-horizontal" action="${pageContext.request.contextPath}/teacher/answerDoubt"
 					method="post">
 					<input type="hidden" id="id" name="id" value="${param.id}"/>
 					<div class="form-group">
-						<label>解决方案：</label>
-						<textarea class="form-control" id="answer" name="answer"></textarea>
+						<textarea class="form-control" placeholder="解决方案" id="answer" name="answer"></textarea>
 					</div>
 					<div class="form-group">
 						<div class="row">

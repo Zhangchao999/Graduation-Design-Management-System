@@ -17,28 +17,31 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>教师信息</h4>
+				<!-- <h4>教师信息</h4> -->
+				<ul class="list-inline">
+					<li>教师信息</li>
+				</ul>
 				<p><font color="red" size="4px">${deleteMessage }</font> </p>
 				<p><font color="red" size="4px">${message }</font> </p>
 				<table class="table table-bordered" >
 					<tr>
-						<td class="success" width="15%" align="right">教师编号:</td>
+						<td  width="15%" align="right"><strong>教师编号:</strong></td>
 						<td width="85%">${sessionScope.teacher.teacherNo }</td>
 					</tr>
 					<tr>
-						<td class="success" align="right">姓名:</td>
+						<td  align="right"><strong>姓名:</strong></td>
 						<td>${sessionScope.teacher.teacherName }</td>
 					</tr>
 					<tr>
-						<td class="success" align="right">性别:</td>
+						<td  align="right"><strong>性别:</strong></td>
 						<td>${sessionScope.teacher.sex }</td>
 					</tr>
 					<tr>
-						<td class="success" align="right">院系:</td>
+						<td  align="right"><strong>院系:</strong></td>
 						<td>${sessionScope.teacher.departmentName }</td>
 					</tr>
 					<tr>
-						<td class="success" align="right">联系方式:</td>
+						<td  align="right"><strong>联系方式:</strong></td>
 						<td>${sessionScope.teacher.phone }</td>
 					</tr>
 

@@ -17,7 +17,12 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-			<h4>上传毕业论文</h4>
+			<!-- <h4>上传毕业论文</h4 -->
+			<ul class="list-inline">
+					<li>文档管理</li>
+					<li>/</li>
+					<li>上传文档</li>
+				</ul>
 				<form class="form-horizontal" enctype="multipart/form-data"
 					action="${pageContext.request.contextPath}/teacher/uploadThesis4pass" method="post">
 					<div class="row">
@@ -25,7 +30,7 @@
 						<div class="form-group">
 							<div class="col-md-4">
 								<label class="control-label">选择学生:</label>
-								<select class="form-control" id="studentList" name="studentList" onclick="showStudent();">
+								<select class="form-control" id="studentList" name="studentList">
 									<option value="">请选择...</option>
 								</select>
 							</div>

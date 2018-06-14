@@ -17,8 +17,13 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>答辩资格名单</h4>
-				<table class="table table-hover ">
+				<!-- <h4>答辩资格名单</h4> -->
+				<ul class="list-inline">
+					<li>毕业设计管理</li>
+					<li>/</li>
+					<li>答辩资格名单</li>
+				</ul>
+				<table class="table ">
 					<thead>
 						<tr>
 							<th>学生姓名</th>
@@ -28,7 +33,7 @@
 					<tbody>
 						<c:forEach items="${studentList }" var="student">
 							<tr>
-								<th>${student.studentName }</th>
+								<td>${student.studentName }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

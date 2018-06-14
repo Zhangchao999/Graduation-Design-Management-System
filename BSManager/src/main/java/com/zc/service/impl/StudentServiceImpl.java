@@ -1,5 +1,6 @@
 package com.zc.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,6 +129,7 @@ public class StudentServiceImpl implements IStudentService{
 		List<ThesisTitle> thesisList = thesisTitleDao.showAllThesisTitleAd();
 		//System.out.println("原始的List是："+thesisList);
 		//移除未审核和审核不通过的
+		
 		for(int i=0;i<thesisList.size();i++) {
 			if(thesisList.get(i).getStatus() != 2) {
 				thesisList.remove(i);
@@ -136,15 +138,20 @@ public class StudentServiceImpl implements IStudentService{
 		//System.out.println("修改后的List是："+thesisList);
 		//移除thesisTitle中已被选的
 		List<Topic> topicList = topicDao.showAllTopic();
+		List<ThesisTitle> showList = new ArrayList<ThesisTitle>();
 		for(int i=0;i<thesisList.size();i++) {
 			for(int j=0;j<topicList.size();j++) {
 				if(thesisList.get(i).getId() == topicList.get(j).getThesisId()) {
-					thesisList.remove(i);
+					break;
+				}else if(j == topicList.size()-1) {
+					showList.add(thesisList.get(i));
+				}else {
+					
 				}
 			}
+			
 		}
-		
-		return thesisList;
+		return showList;
 	}
 
 
@@ -349,6 +356,15 @@ public class StudentServiceImpl implements IStudentService{
 		// TODO Auto-generated method stub
 		List<Doubt> doubtList = doubtDao.getAllDoubt(studentId);
 		return doubtList;
+	}
+
+
+	public String getThesisDesc(int thesisId) {
+		// TODO Auto-generated method stub
+		
+		ThesisTitle thesis = thesisTitleDao.getThesisById(thesisId);
+		String desc = thesis.getDescription();
+		return desc;
 	}
 
 }

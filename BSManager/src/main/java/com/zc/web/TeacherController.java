@@ -410,12 +410,18 @@ public class TeacherController {
 		}
 		for(int i=0;i<student4pass.size();i++) {
 			int studentId = student4pass.get(i).getId();
-			int thesisScore  = teacherService.showInfoByStudentId(studentId).getThesisResult();
-			student4pass.get(i).setThesisScore(thesisScore);
+			StudentScore studentScore = teacherService.showInfoByStudentId(studentId);
+			if(studentScore == null || "".equals(studentScore)) {
+				model.addAttribute("message", "尚未添加过学生成绩");
+				return "teacher/teacherScore.jsp";
+			}else {
+				int thesisScore  = teacherService.showInfoByStudentId(studentId).getThesisResult();
+				student4pass.get(i).setThesisScore(thesisScore);
+				model.addAttribute("studentList", student4pass);
+				return "teacher/teacherModifyScore.jsp";
+			}
+			
 		}
-		
-		model.addAttribute("studentList", student4pass);
-		
 		
 		return "teacher/teacherModifyScore.jsp";
 	}
@@ -635,7 +641,7 @@ public class TeacherController {
 				teacherTaskBookOpening.setThesisTitleId(topic4Teacher);
 				int num = teacherService.uploadTaskBook(teacherTaskBookOpening);
 				System.out.println("添加了"+num+"条信息，是课题id为 "+topic4Teacher+"的任务书");
-				
+				model.addAttribute("message", "成功上传任务书");
 				return "teacher/main.jsp";
 			}else {
 				model.addAttribute("message", "上传任务书出错");
@@ -688,7 +694,7 @@ public class TeacherController {
 				//int num = teacherService.uploadTaskBook(teacherTaskBookOpening);
 				int num = teacherService.uploadOpening(teacherTaskBookOpening);
 				System.out.println("添加了"+num+"条信息，是课题id为 "+topic4Teacher+"的开题报告");
-				
+				model.addAttribute("message", "成功上传开题报告");
 				return "teacher/main.jsp";
 			}else {
 				model.addAttribute("message", "上传开题报告出错");
@@ -900,7 +906,8 @@ public class TeacherController {
 		for(int i=0;i<allStudents.size();i++) {
 			int studentId = allStudents.get(i).getId();
 			ThesisInformation thesisInfor = teacherService.getInfoByStudentId(studentId);
-			if(thesisInfor == null || "".equals(thesisInfor)) {
+			
+			if(thesisInfor == null || "".equals(thesisInfor)||thesisInfor.getStatus()!=2) {
 				
 			}else {
 				student4pass.add(allStudents.get(i));
@@ -918,16 +925,26 @@ public class TeacherController {
 	public String teacherAddStudentScore(HttpServletRequest request, @RequestParam("studentList") int studentList,@RequestParam("score") int score,Model model) throws IOException {
 		Teacher currentTeacher = (Teacher)request.getSession().getAttribute("teacher");
 		String teacherName = currentTeacher.getTeacherName();
-		StudentScore studentScore = new StudentScore();
-		studentScore.setStudentId(studentList);
-		studentScore.setThesisResult(score);
-		studentScore.setInputMan(teacherName);
 		
-		int num = teacherService.addStudentScore(studentScore);
-		System.out.println("添加"+num+"条学生成绩");
-		model.addAttribute("message", "添加一条学生成绩");
+		StudentScore Ss = teacherService.showInfoByStudentId(studentList);
+		if(Ss == null || "".equals(Ss)) {
+			StudentScore studentScore = new StudentScore();
+			studentScore.setStudentId(studentList);
+			studentScore.setThesisResult(score);
+			studentScore.setInputMan(teacherName);
+			
+			
+			int num = teacherService.addStudentScore(studentScore);
+			System.out.println("添加"+num+"条学生成绩");
+			model.addAttribute("message", "添加一条学生成绩");
+			
+			return "teacher/main.jsp";
+		}else {
+			model.addAttribute("message", "该学生已经添加过成绩");
+			return "teacher/main.jsp";
+		}
 		
-		return "teacher/main.jsp";
+		
 	}
 	
 	@RequestMapping(value="/modifyStudentScore")
@@ -1068,6 +1085,23 @@ public class TeacherController {
 		model.addAttribute("doubtList", doubtList);
 		
 		return "teacher/teacherAnsweredDoubt.jsp";
+	}
+	
+	@RequestMapping(value="/getThesisDescById")
+	public String getThesisDescById(Model model,int id,String answer) throws Exception {
+		
+		answer = new String(answer.getBytes("iso-8859-1"),"utf-8");
+		Doubt doubt = new Doubt();
+		doubt.setId(id);
+		doubt.setAnswer(answer);
+		int num = teacherService.updateDoubt(doubt);
+		if(num == 1) {
+			model.addAttribute("message", "回复成功");
+		}else {
+			model.addAttribute("message", "回复失败");
+		}
+		
+		return "teacher/main.jsp";
 	}
 	
 }

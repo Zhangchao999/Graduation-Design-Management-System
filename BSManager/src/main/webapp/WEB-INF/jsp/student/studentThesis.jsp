@@ -7,6 +7,7 @@
 <title>选择课题</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/topicManage.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/getThesisDesc.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -15,23 +16,30 @@
 	<div class="container">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<h4>选择课题</h4>
+			<!-- <h4>选择课题</h4> -->
+			<ul class="list-inline">
+					<li>课题管理</li>
+					<li>/</li>
+					<li>选择课题</li>
+				</ul>
 			<br>
 			<form action="${pageContext.request.contextPath}/student/selectTopic" method="post">
-			<input type="hidden" name="id" id="id" value="${sessionScope.student.id }" />
+				<input type="hidden" name="id" id="id" value="${sessionScope.student.id }" />
+				<div class="col-md-5">
+					<select class="form-control" id="topic" name="topic">
+						<option value="">请选择...</option>
+					</select>
+				</div>
+
 				<div class="col-md-6">
-					<select class="form-control" id="topic" name="topic" onclick="addTopic();">
-					<option value="">请选择...</option>
-				</select>
+					<textarea class="form-control" style="width: 350px;height: 120px" placeholder="课题描述" id="thesisDesc" name="thesisDesc" ondblclick="show();"></textarea>
 				</div>
-				
-				<div class="col-md-2"></div>
-				<div class="col-md-4">
+				<div class="col-md-1">
 					<div class="form-group">
-					<button class="btn btn-primary" type="submit">提交</button>
+						<button class="btn btn-primary" type="submit">提交</button>
+					</div>
 				</div>
-				</div>
-				
+
 			</form>
 		</div>
 		<div class="col-md-2"></div>

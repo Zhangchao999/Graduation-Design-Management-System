@@ -17,9 +17,14 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>查看任务书和开题报告</h4>
+				<!-- <h4>查看任务书和开题报告</h4> -->
+				<ul class="list-inline">
+					<li>进度管理</li>
+					<li>/</li>
+					<li>查看任务书和开题报告</li>
+				</ul>
 				<p><font color="red">${message }</font> </p>
-				<table class="table table-striped">
+				<table class="table table-bordered">
 					<tr>
 						<td>文件名</td>
 						<td>操作</td>
